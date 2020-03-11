@@ -1,0 +1,74 @@
+import { Component } from '@angular/core';
+import {trigger, animate, style, transition, keyframes} from '@angular/animations';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  animations: [
+   trigger('moveInLeft', [
+      transition('void=> *', [style({transform: 'translateX(300px)'}),
+        animate(200, keyframes([
+         style({transform: 'translateX(300px)'}),
+         style({transform: 'translateX(0)'})
+
+          ]))]),
+
+
+          transition('*=>void', [style({transform: 'translateX(0px)'}),
+        animate(100, keyframes([
+         style({transform: 'translateX(0px)'}),
+         style({transform: 'translateX(300px)'})
+
+          ]))])
+
+])
+
+  ]
+})
+export class AppComponent {
+  // 1. create a property in app.component.ts called todoArray and intialize the value to be an empty array
+
+
+  //2. create a property in app.component.ts called "formTitle" and initialize the value of the form
+  // title to be <Your name> Cool App. e.g "Tosin Cool App";
+
+  todo;
+  todoArray = [];
+  formTitle = "Najeeb's ToDo App";
+  //todoForm: new FormGroup()
+
+ addTodo(value){
+    if (value !== ''){
+     this.todoArray.push(value);
+   //  todoForm.resetForm()
+    //console.log(this.todos)
+  }else{
+    alert('Field required **')
+  }
+
+  }
+  /*delete item*/
+  deleteItem(todo){
+  	for (let i = 0 ; i <= this.todoArray.length ; i++){
+  		if (todo == this.todoArray[i]){
+  			this.todoArray.splice(i, 1)
+  		}
+  	}
+  }
+// submit Form
+ todoSubmit(value: any){
+     if (value !== '') {
+       const todoValue = value.todo;
+    // add the todoValue to the this.todoArray;
+this.todoArray.push(todoValue);
+    }else{
+      alert('Field required **')
+    }
+
+  }
+
+}
+
+
+
+
