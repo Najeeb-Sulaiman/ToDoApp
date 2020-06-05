@@ -5,12 +5,14 @@ import { BrowserAnimationsModule  } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { FormTitleComponent } from './form-title/form-title.component';
+import { HelloComponent } from './hello.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormTitleComponent
+    FormTitleComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,
